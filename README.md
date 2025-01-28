@@ -21,8 +21,9 @@ An introductory workshop on Microsoft Fabric:
 
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/ea210ad1-99f7-4e7a-b46f-935a571125f2" alt="Centered Image" style="border: 2px solid #4CAF50; border-radius: 5px; padding: 5px;"/>
+  <img src="https://github.com/user-attachments/assets/db98dd56-651e-4aa3-ba94-d1899102de4b" alt="Centered Image" style="border: 2px solid #4CAF50; border-radius: 5px; padding: 5px;"/>
 </div>
+
 
 
 
