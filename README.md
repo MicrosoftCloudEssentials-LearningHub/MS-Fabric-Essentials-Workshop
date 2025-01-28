@@ -13,7 +13,7 @@ Last updated: 2025-01-27
 > For more detailed and official training, please visit the [Microsoft official training site](https://learn.microsoft.com/en-us/training/)
 
 An introductory workshop on Microsoft Fabric:
-- `Fabric Overview`: Understand the core components and capabilities of Microsoft Fabric.
+- [Fabric Overview](https://github.com/MicrosoftCloudEssentials-LearningHub/MS-Fabric-Basic-Workshop/blob/main/0_Overview.md): Understand the core components and capabilities of Microsoft Fabric.
 - `Medallion Architecture`: Explore the structured approach to data management.
 - `AI + LLMs`: Discover how artificial intelligence and large language models integrate with Fabric.
 - `AI Skills`: Get insights on using AI skills within the platform.
