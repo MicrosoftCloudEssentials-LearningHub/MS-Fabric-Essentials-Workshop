@@ -9,7 +9,7 @@ Last updated: 2025-01-28
 
 ------------------------------------------
 
-> Microsoft Fabric is a comprehensive data and analytics platform designed to unify various data operations and enhance AI capabilities. 
+> Microsoft Fabric is a comprehensive data and analytics platform designed to unify various data operations and enhance AI capabilities. Fabric's OneLake datastore provides a unified data storage solution that supports differents data formats and sources. This feature simplifies data access and management, enabling efficient data preparation and model training.
 
 <details>
 <summary><b>List of References </b> (Click to expand)</summary>
@@ -27,22 +27,30 @@ Last updated: 2025-01-28
 - [LangChain-AzureOpenAI Parameter API Reference](https://python.langchain.com/api_reference/openai/chat_models/langchain_openai.chat_models.azure.AzureChatOpenAI.html#)
 </details>
 
+<details>
+<summary><b>Table of Content </b> (Click to expand)</summary>
+
+- [Overview](#overview)
+- [Demo](#demo)
+    - [Set Up Your Environment](#set-up-your-environment)
+    - [Install Required Libraries](#install-required-libraries)
+    - [Configure Azure OpenAI Service](#configure-azure-openai-service)
+    - [Basic Usage of LangChain Transformer](#basic-usage-of-langchain-transformer)
+    - [Using LangChain for Large Scale Literature Review](#using-langchain-for-large-scale-literature-review)
+    - [Machine Learning Integration with Microsoft Fabric](#machine-learning-integration-with-microsoft-fabric)
+
+</details>
+
 ## Overview 
 
-> Microsoft Fabric is a comprehensive data analytics platform that brings together various data services to provide an end-to-end solution for data engineering, data science, data warehousing, real-time analytics, and business intelligence. It's designed to simplify the process of working with data and to enable organizations to gain insights more efficiently. <br/>
+> Microsoft Fabric is a comprehensive data analytics platform that brings together various data services to provide an end-to-end solution for data engineering, data science, data warehousing, real-time analytics, and business intelligence. It's designed to simplify the process of working with data and to enable organizations to gain insights more efficiently. <br/> <br/>
 > Capabilities Enabled by LLMs: <br/>
 > - `Document Summarization`: LLMs can process and summarize large documents, making it easier to extract key information. <br/>
 > - `Question Answering:` Users can perform Q&A tasks on PDF documents, allowing for interactive data exploration. <br/>
 > - `Embedding Generation`: LLMs can generate embeddings for document chunks, which can be stored in a vector store for efficient search and retrieval.
 
-| Key Functionalities | Description |
-|-----------------------------------------|-------------|
-| **Unified Analytics Platform**          | Integrates multiple data services, including data engineering, data warehousing, data science, and real-time analytics, into a single platform. This unification simplifies data management and analytics workflows. |
-| **Lake-Centric Architecture**           | Employs a lake-centric architecture, allowing data to be stored in a single, scalable data lake. This architecture supports open data formats and ensures seamless data access and management. |
-| **Empowering Business Users**           | Designed to be user-friendly, enabling business users to create data pipelines, models, and reports without needing deep technical expertise. |
-| **Built-in AI Capabilities**            | Includes built-in AI features that leverage Azure AI services. These capabilities enable advanced analytics, machine learning, and AI-driven insights directly within the platform. |
-
-> Fabric's OneLake datastore provides a unified data storage solution that supports various data formats and sources. This feature simplifies data access and management, enabling efficient data preparation and model training.
+  
+## Demo 
 
 Tools in practice:
 
@@ -50,8 +58,6 @@ Tools in practice:
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **LangChain**| LangChain is a framework for developing applications powered by language models. It can be used with Azure OpenAI to build applications that require natural language understanding and generation. <br>**Use Case**: Creating complex applications that involve multiple steps or stages of processing, such as preprocessing text data, applying a language model, and postprocessing the results. |
 | **SynapseML**| SynapseML is an open-source library that simplifies the creation of massively scalable machine learning pipelines. It integrates with Azure OpenAI to provide distributed computing capabilities, allowing you to apply large language models at scale. <br>**Use Case**: Applying powerful language models to massive amounts of data, enabling scenarios like batch processing of text data or large-scale text analytics. |
-  
-## Demo 
 
 ### Set Up Your Environment
 1. **Register the Resource Provider**: Ensure that the `microsoft.fabric` resource provider is registered in your subscription.
@@ -132,20 +138,20 @@ Tools in practice:
 
 1. **Set Up API Keys**: Ensure you have the API key and endpoint URL for your deployed model. Set these as environment variables
 
-<img width="550" alt="image" src="https://github.com/user-attachments/assets/a2eb24bf-7279-4f4e-be00-408dbbd82600">
-
- ```python
-import os
-
-# Set the API version for the Azure OpenAI service
-os.environ["OPENAI_API_VERSION"] = "2023-08-01-preview"
-
-# Set the base URL for the Azure OpenAI service
-os.environ["AZURE_OPENAI_ENDPOINT"] = "https://your-resource-name.openai.azure.com"
-
-# Set the API key for Azure OpenAI
-os.environ["AZURE_OPENAI_API_KEY"] = "your-api-key"
- ```
+    <img width="550" alt="image" src="https://github.com/user-attachments/assets/a2eb24bf-7279-4f4e-be00-408dbbd82600">
+    
+     ```python
+    import os
+    
+    # Set the API version for the Azure OpenAI service
+    os.environ["OPENAI_API_VERSION"] = "2023-08-01-preview"
+    
+    # Set the base URL for the Azure OpenAI service
+    os.environ["AZURE_OPENAI_ENDPOINT"] = "https://your-resource-name.openai.azure.com"
+    
+    # Set the API key for Azure OpenAI
+    os.environ["AZURE_OPENAI_API_KEY"] = "your-api-key"
+     ```
 
 2. **Initialize Azure OpenAI Class**: Create an instance of the Azure OpenAI class using the environment variables set above.
 
