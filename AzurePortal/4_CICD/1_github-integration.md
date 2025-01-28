@@ -10,10 +10,8 @@ Last updated: 2025-01-28
 
 ----------
 
-## Wiki 
-
 <details>
-<summary><b>Table of Wiki </b> (Click to expand)</summary>
+<summary><b>List of References </b> (Click to expand)</summary>
 
 - [What is Microsoft Fabric Git integration?](https://learn.microsoft.com/en-us/fabric/cicd/git-integration/intro-to-git-integration?tabs=azure-devops)
 - [Get started with Git integration - Guided examples](https://learn.microsoft.com/en-us/fabric/cicd/git-integration/git-get-started?tabs=azure-devops%2CAzure%2Ccommit-to-git#connect-a-workspace-to-a-git-repo)
@@ -23,8 +21,6 @@ Last updated: 2025-01-28
 - [Microsoft Fabric Samples - Git repo](https://github.com/microsoft/fabric-samples)
 
 </details>
-
-## Content
 
 <details>
 <summary><b>Table of Content </b> (Click to expand)</summary>
