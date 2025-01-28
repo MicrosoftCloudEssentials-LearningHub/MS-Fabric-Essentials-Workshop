@@ -1,4 +1,4 @@
-# Microsoft Fabric: Basic Workshop
+# Microsoft Fabric: Essentials Workshop
 
 Costa Rica
 
