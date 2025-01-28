@@ -16,13 +16,32 @@ Key Features:
 - Generative AI: Leverage advanced AI to interact with your data, enhancing data-driven decision-making.
 - Ease of Use: Once set up, users can simply ask questions and get accurate answers without needing deep technical knowledge.
 
-## Wiki 
+## References 
+
+<details>
+<summary><b>List of References </b> (Click to expand)</summary>
 
 - [How to create an AI skill (preview)](https://learn.microsoft.com/en-us/fabric/data-science/how-to-create-ai-skill)
 - [Introducing AI Skills in Microsoft Fabric](https://blog.fabric.microsoft.com/en-us/blog/introducing-ai-skills-in-microsoft-fabric-now-in-public-preview/)
 - [AI skill scenario (preview)](https://learn.microsoft.com/en-us/fabric/data-science/ai-skill-scenario)
 - [Prebuilt Azure AI services in Fabric](https://blog.fabric.microsoft.com/en-us/blog/prebuilt-azure-ai-services-in-fabric-2?ft=02-2024:date)
 - [AI skill example with the AdventureWorks dataset -preview](https://learn.microsoft.com/en-us/fabric/data-science/ai-skill-scenario)
+
+</details>
+
+## Content
+
+<details>
+<summary><b>Table of Content </b> (Click to expand)</summary>
+
+- [References](#references)
+- [Content](#content)
+- [Setup required](#setup-required)
+- [How it works](#how-it-works)
+- [Examples of what to ask](#examples-of-what-to-ask)
+
+</details>
+
 
 ## Setup required
 
