@@ -120,7 +120,9 @@ graph TD;
         terraform apply -var-file terraform.tfvars
         ```
 
+        <img width="550" alt="image" src="https://github.com/user-attachments/assets/942ce4a8-fce1-473d-a334-a4224c6a8952">
 
+        <img width="550" alt="image" src="https://github.com/user-attachments/assets/7df28bd7-4ea4-49cf-bce1-7373ef6319aa">
      
    - **Remove**: Destroys the infrastructure managed by Terraform. It prompts for confirmation before deleting any resources. It also uses the variable values specified in `terraform.tfvars`.
     
