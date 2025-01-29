@@ -20,7 +20,7 @@ Last updated: 2025-01-29
         - [For Linux:](#for-linux)
     - [Step 3: Verify the Installation](#step-3-verify-the-installation)
     - [Step 4: Initialize Terraform](#step-4-initialize-terraform)
-
+- [Resource Group Not Found](#resource-group-not-found)
 
 
 ## Terraform is not recognized
@@ -150,6 +150,11 @@ Now you can run the `terraform init` command in your project directory:
 terraform init
 ```
 
+## Resource Group Not Found
+
+> Please ensure you create your resource group before running the configuration and deployment. This error occurs because the specified resource group does not exist.
+
+<img width="990" alt="image" src="https://github.com/user-attachments/assets/14c0a4a1-4209-4c46-8a72-8132f6dbbcec" />
 
 
 <div align="center">
