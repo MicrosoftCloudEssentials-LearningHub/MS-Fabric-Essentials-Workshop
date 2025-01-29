@@ -13,7 +13,7 @@ location = "Central US"
 
 # SQL Server configuration
 sql_server_name = "usernamesqlserver" # replace username with your name 
-admin_username  = "adminuser" # raplace with your desired user name 
+admin_username  = "adminuser" # replace with your desired user name 
 admin_password  = "P@ssw0rd1234"  # Make sure to use a strong password
 
 # SQL Database name
