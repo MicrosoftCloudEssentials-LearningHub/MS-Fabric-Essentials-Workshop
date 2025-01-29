@@ -14,10 +14,8 @@ sql_database_name = "example-database"
 
 # Microsoft Fabric Capacity configuration
 fabric_capacity_name = "example-fabric-capacity"
-fabric_sku_name      = "F1"
+fabric_sku_name      = "F64"
 
-# Remote state storage configuration
-remote_state_resource_group_name  = "example-resources"
-remote_state_storage_account_name = "examplestorageacct"
-remote_state_container_name       = "tfstate"
-remote_state_key                  = "terraform.tfstate"
+# New variables for remote state storage
+storage_account_name = "storageacctworkshop01"
+container_name       = "tfstate"

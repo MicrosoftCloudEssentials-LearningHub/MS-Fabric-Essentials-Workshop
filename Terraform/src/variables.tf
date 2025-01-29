@@ -48,26 +48,14 @@ variable "fabric_sku_name" {
   type        = string
 }
 
-# Variable for the resource group name for remote state storage
-variable "remote_state_resource_group_name" {
-  description = "The name of the resource group for remote state storage"
-  type        = string
-}
-
-# Variable for the storage account name for remote state storage
-variable "remote_state_storage_account_name" {
+# Variable for the storage account name
+variable "storage_account_name" {
   description = "The name of the storage account for remote state storage"
   type        = string
 }
 
-# Variable for the container name for remote state storage
-variable "remote_state_container_name" {
+# Variable for the container name
+variable "container_name" {
   description = "The name of the container for remote state storage"
-  type        = string
-}
-
-# Variable for the key for the remote state file
-variable "remote_state_key" {
-  description = "The key for the remote state file"
   type        = string
 }
