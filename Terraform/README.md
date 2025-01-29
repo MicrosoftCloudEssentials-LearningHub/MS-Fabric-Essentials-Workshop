@@ -1,0 +1,104 @@
+# Terraform Configuration for Microsoft Fabric Capacity and SQL Server
+
+Costa Rica
+
+[![GitHub](https://img.shields.io/badge/--181717?logo=github&logoColor=ffffff)](https://github.com/)
+[brown9804](https://github.com/brown9804)
+
+Last updated: 2025-01-29
+
+------------------------------------------
+
+> This repository contains Terraform configurations for setting up Microsoft Fabric Capacity and an SQL Server with a database on a public network, which are essential resources for this workshop.
+
+<p style="text-align: center;">
+    <img width="750" alt="image" src="">
+</p>
+
+<details>
+<summary><b>List of References </b> (Click to expand)</summary>
+
+- [Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
+
+</details>
+
+<details>
+<summary><b>Table of Content </b> (Click to expand)</summary>
+
+- [Terraform Configuration for Microsoft Fabric Capacity and SQL Server](#terraform-configuration-for-microsoft-fabric-capacity-and-sql-server)
+    - [Overview](#overview)
+    - [How to execute it](#how-to-execute-it)
+
+
+</details>
+
+## Overview
+
+~~~
+.
+├── README.md
+├── src
+├────── main.tf
+├────── variables.tf
+├────── provider.tf
+├────── terraform.tfvars
+├────── remote-storage.tf
+├────── outputs.tf
+~~~
+
+
+- main.tf `(Main Terraform configuration file)`: This file contains the core infrastructure code. It defines the resources you want to create, such as virtual machines, networks, and storage. It's the primary file where you describe your infrastructure in a declarative manner.
+- variables.tf `(Variable definitions)`: This file is used to define variables that can be used throughout your Terraform configuration. By using variables, you can make your configuration more flexible and reusable. For example, you can define variables for resource names, sizes, and other parameters that might change between environments.
+- provider.tf `(Provider configurations)`: Providers are plugins that Terraform uses to interact with cloud providers, SaaS providers, and other APIs. This file specifies which providers (e.g., AWS, Azure, Google Cloud) you are using and any necessary configuration for them, such as authentication details.
+- terraform.tfvars `(Variable values)`: This file contains the actual values for the variables defined in `variables.tf`. By separating variable definitions and values, you can easily switch between different sets of values for different environments (e.g., development, staging, production) without changing the main configuration files.
+- remote-storage.tf `(Remote state storage configuration)`: Terraform uses a state file to keep track of the resources it manages. This file configures remote state storage, which allows you to store the state file in a remote location (e.g., an S3 bucket, Azure Blob Storage). Remote state storage is crucial for collaboration and ensuring that the state file is not lost or corrupted.
+- outputs.tf `(Output values)`: This file defines the output values that Terraform should return after applying the configuration. Outputs are useful for displaying information about the resources created, such as IP addresses, resource IDs, and other important details. They can also be used as inputs for other Terraform configurations or scripts.
+
+## How to execute it 
+
+```mermaid
+graph TD;
+    A[az login] --> B(terraform init)
+    B --> C{Terraform provisioning stage}
+    C -->|Review| D[terraform plan -var-file=terraform.tfvars]
+    C -->|Order Now| E[terraform apply -var-file=terraform.tfvars]
+    C -->|Delete Resource (if needed)| F[terraform destroy -var-file=terraform.tfvars]
+```
+
+
+1. **Login to Azure**: This command logs you into your Azure account. It opens a browser window where you can enter your Azure credentials. Once logged in, you can manage your Azure resources from the command line.
+
+    ```sh
+    az login
+    ```
+
+2. **Initialize Terraform**: Initializes the working directory containing the Terraform configuration files. It downloads the necessary provider plugins and sets up the backend for storing the state.
+
+    terraform init
+    ```
+
+3. **Terraform Provisioning Stage**: 
+
+   - **Review**: Creates an execution plan, showing what actions Terraform will take to achieve the desired state defined in your configuration files. It uses the variable values specified in `terraform.tfvars`.
+
+        ```sh
+        terraform plan -var-file=terraform.tfvars
+        ```
+
+   - **Order Now**: Applies the changes required to reach the desired state of the configuration. It prompts for confirmation before making any changes. It also uses the variable values specified in `terraform.tfvars`.
+
+        ```sh
+        terraform apply -var-file=terraform.tfvars
+        ```
+
+   - **Remove**: Destroys the infrastructure managed by Terraform. It prompts for confirmation before deleting any resources. It also uses the variable values specified in `terraform.tfvars`.
+    
+        ```sh
+        terraform destroy -var-file=terraform.tfvars
+        ```
+
+
+<div align="center">
+  <h3 style="color: #4CAF50;">Total Visitors</h3>
+  <img src="https://profile-counter.glitch.me/brown9804/count.svg" alt="Visitor Count" style="border: 2px solid #4CAF50; border-radius: 5px; padding: 5px;"/>
+</div>
