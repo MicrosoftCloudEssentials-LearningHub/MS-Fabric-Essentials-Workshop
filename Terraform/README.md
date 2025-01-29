@@ -94,12 +94,16 @@ graph TD;
         terraform plan -var-file terraform.tfvars
         ```
 
+        <img width="550" alt="image" src="https://github.com/user-attachments/assets/1bf9b3cb-cdf7-4e10-8ed4-ec3b696d57db" />
+
    - **Order Now**: Applies the changes required to reach the desired state of the configuration. It prompts for confirmation before making any changes. It also uses the variable values specified in `terraform.tfvars`.
 
         ```sh
         terraform apply -var-file terraform.tfvars
         ```
 
+
+     
    - **Remove**: Destroys the infrastructure managed by Terraform. It prompts for confirmation before deleting any resources. It also uses the variable values specified in `terraform.tfvars`.
     
         ```sh
