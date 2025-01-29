@@ -59,3 +59,15 @@ variable "container_name" {
   description = "The name of the container for remote state storage"
   type        = string
 }
+
+# Variable for the subscription ID
+variable "subscription_id" {
+  description = "The subscription ID for the Azure account"
+  type        = string
+}
+
+# Variable for the administrator principal ID
+variable "admin_principal_id" {
+  description = "The principal ID of the capacity administrator"
+  type        = string
+}

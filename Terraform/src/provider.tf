@@ -14,6 +14,7 @@ terraform {
 
 provider "azurerm" {
   features {}  # Enable all features for the AzureRM provider
+  subscription_id = var.subscription_id  # Add your subscription ID here
 }
 
 provider "azapi" {}
