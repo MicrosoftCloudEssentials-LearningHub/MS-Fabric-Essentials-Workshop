@@ -53,6 +53,22 @@ Last updated: 2025-01-29
 - remote-storage.tf `(Remote state storage configuration)`: Terraform uses a state file to keep track of the resources it manages. This file configures remote state storage, which allows you to store the state file in a remote location (e.g., an S3 bucket, Azure Blob Storage). Remote state storage is crucial for collaboration and ensuring that the state file is not lost or corrupted.
 - outputs.tf `(Output values)`: This file defines the output values that Terraform should return after applying the configuration. Outputs are useful for displaying information about the resources created, such as IP addresses, resource IDs, and other important details. They can also be used as inputs for other Terraform configurations or scripts.
 
+## Finding `admin_principal_id` Using Azure CLI
+
+> The `admin_principal_id` is typically the Object ID of a user, group, or service principal in Azure Active Directory (AAD). You can find this ID in the Azure portal or by using the Azure CLI.
+
+> Get the Object ID of list of Users:
+
+    ```sh
+    az ad user list --query "[].{Name:displayName, ObjectId:id, Email:userPrincipalName}" --output table
+    ```
+
+Here is an example value for `admin_principal_id` which is Object ID you retrieved.
+
+```hcl
+admin_principal_id = "12345678-1234-1234-1234-1234567890ab"
+```
+
 ## How to execute it 
 
 ```mermaid 

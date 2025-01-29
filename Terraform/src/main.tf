@@ -33,12 +33,22 @@ resource "azurerm_mssql_server" "example" {
   depends_on                   = [azurerm_resource_group.example]  # Ensure resource group is created first
 }
 
+# Add a null resource to introduce a delay
+resource "null_resource" "wait_for_sql_server" {
+  depends_on = [azurerm_mssql_server.example]
+
+  provisioner "local-exec" {
+    command = "Start-Sleep -Seconds 60"
+    interpreter = ["PowerShell", "-Command"]
+  }
+}
+
 # Create an MSSQL Database
 resource "azurerm_mssql_database" "example" {
   name      = var.sql_database_name                   # Name of the SQL Database
   server_id = azurerm_mssql_server.example.id         # ID of the SQL Server
   sku_name  = "Basic"                                 # SKU name for the SQL Database
-  depends_on = [azurerm_mssql_server.example]         # Ensure SQL Server is created first
+  depends_on = [null_resource.wait_for_sql_server]    # Ensure SQL Server is fully provisioned first
 }
 
 # Create Microsoft Fabric Capacity using azapi_resource
