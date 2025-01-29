@@ -11,8 +11,8 @@ Last updated: 2025-01-29
 
 > This repository contains Terraform configurations for setting up Microsoft Fabric Capacity and an SQL Server with a database on a public network, which are essential resources for this workshop.
 
-<p style="text-align: center;">
-    <img width="750" alt="image" src="https://github.com/user-attachments/assets/3860deb8-17d2-48c4-bcd8-2bcd9c940e8c">
+<p align="center">
+    <img width="550" alt="image" src="https://github.com/user-attachments/assets/3860deb8-17d2-48c4-bcd8-2bcd9c940e8c">
 </p>
 
 <details>
