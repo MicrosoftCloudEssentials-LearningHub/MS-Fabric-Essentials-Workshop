@@ -1,3 +1,21 @@
+# Retrieve the client configuration of the AzureRM provider
+data "azurerm_client_config" "example" {}
+
+# Check the directory object type
+data "azuread_directory_object" "example" {
+  object_id = data.azurerm_client_config.example.object_id
+}
+
+# Get information about the Entra user
+data "azuread_user" "example" {
+  object_id = data.azurerm_client_config.example.object_id
+}
+
+# Local value to determine if the client is a user or not
+locals {
+  fabric_admin = can(data.azuread_directory_object.example.type == "User") ? data.azuread_user.example.user_principal_name : data.azurerm_client_config.example.object_id
+}
+
 # Create a resource group
 resource "azurerm_resource_group" "example" {
   name     = var.resource_group_name  # Name of the resource group
@@ -51,27 +69,36 @@ resource "azurerm_mssql_database" "example" {
   depends_on = [null_resource.wait_for_sql_server]    # Ensure SQL Server is fully provisioned first
 }
 
-# Create Microsoft Fabric Capacity using azapi_resource
-resource "azapi_resource" "example" {
-  type      = "Microsoft.Fabric/capacities@2023-11-01"
-  name      = var.fabric_capacity_name
-  location  = azurerm_resource_group.example.location
-  parent_id = azurerm_resource_group.example.id
+# Create Microsoft Fabric Capacity 
+resource "azurerm_fabric_capacity" "example" {
+  name                = "fc${var.solution_name}"
+  resource_group_name = azurerm_resource_group.example.name
+  location            = var.location
 
-  body = jsonencode({
-    sku = {
-      name = var.fabric_sku_name
-    },
-    properties = {
-      administrators = [
-        {
-          principalId = var.admin_principal_id  # Add the capacity administrator
-        }
-      ]
-    }
-  })
+  administration_members = setunion([local.fabric_admin], var.fabric_capacity_admin_upns)
 
-  # Disable schema validation
-  schema_validation_enabled = false
+  sku {
+    name = var.fabric_capacity_sku
+    tier = "Fabric"
+  }
   depends_on = [azurerm_resource_group.example]  # Ensure resource group is created first
+}
+
+# Get the Fabric Capacity details
+data "fabric_capacity" "example" {
+  display_name = azurerm_fabric_capacity.example.name
+
+  lifecycle {
+    postcondition {
+      condition     = self.state == "Active"
+      error_message = "Fabric Capacity is not in Active state. Please check the Fabric Capacity status."
+    }
+  }
+}
+
+# Create a Fabric Workspace
+resource "fabric_workspace" "example" {
+  capacity_id  = data.fabric_capacity.example.id
+  display_name = "ws-${var.solution_name}"
+  depends_on   = [data.fabric_capacity.example]  # Ensure Fabric Capacity data source is available first
 }
