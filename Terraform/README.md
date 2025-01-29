@@ -1,4 +1,4 @@
-# Terraform Configuration for Microsoft Fabric Capacity and SQL Server
+# Terraform deployment of Azure resources needed for the workshop
 
 Costa Rica
 
@@ -12,7 +12,7 @@ Last updated: 2025-01-29
 > This repository contains Terraform configurations for setting up Microsoft Fabric Capacity and an SQL Server with a database on a public network, which are essential resources for this workshop.
 
 <p style="text-align: center;">
-    <img width="750" alt="image" src="">
+    <img width="750" alt="image" src="https://github.com/user-attachments/assets/3860deb8-17d2-48c4-bcd8-2bcd9c940e8c">
 </p>
 
 <details>
@@ -86,20 +86,15 @@ graph TD;
 > [!IMPORTANT]
 > Please modify `terraform.tfvars` with your information. Then run the following flow:
 
-
 1. **Login to Azure**: This command logs you into your Azure account. It opens a browser window where you can enter your Azure credentials. Once logged in, you can manage your Azure resources from the command line.
 
     ```sh
     az login
     ```
 
-<p align="center">
     <img width="550" alt="image" src="https://github.com/user-attachments/assets/b8dd07b5-074d-4f3a-b7e9-c1bcd3faedda" />
-</p>
 
-<p align="center">
     <img width="550" alt="image" src="https://github.com/user-attachments/assets/9c2c3a4d-bd1c-4bbf-bd7d-1270f1df8946" />
-</p>
 
 2. **Initialize Terraform**: Initializes the working directory containing the Terraform configuration files. It downloads the necessary provider plugins and sets up the backend for storing the state.
 
