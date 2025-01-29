@@ -25,10 +25,9 @@ Last updated: 2025-01-29
 <details>
 <summary><b>Table of Content </b> (Click to expand)</summary>
 
-- [Terraform Configuration for Microsoft Fabric Capacity and SQL Server](#terraform-configuration-for-microsoft-fabric-capacity-and-sql-server)
-    - [Overview](#overview)
-    - [How to execute it](#how-to-execute-it)
-
+- [Overview](#overview)
+- [Finding admin_principal_id Using Azure CLI](#finding-admin_principal_id-using-azure-cli)
+- [How to execute it](#how-to-execute-it)
 
 </details>
 
@@ -57,11 +56,14 @@ Last updated: 2025-01-29
 
 > The `admin_principal_id` is typically the Object ID of a user, group, or service principal in Azure Active Directory (AAD). You can find this ID in the Azure portal or by using the Azure CLI.
 
-> Get the Object ID of list of Users:
+Get the Object ID of list of Users:
 
-    ```sh
-    az ad user list --query "[].{Name:displayName, ObjectId:id, Email:userPrincipalName}" --output table
-    ```
+```sh
+az ad user list --query "[].{Name:displayName, ObjectId:id, Email:userPrincipalName}" --output table
+```
+
+<img width="550" alt="image" src="https://github.com/user-attachments/assets/c3f57b8c-025b-4784-9de6-d943311d9b04" />
+
 
 Here is an example value for `admin_principal_id` which is Object ID you retrieved.
 
