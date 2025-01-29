@@ -19,6 +19,8 @@ Last updated: 2025-01-29
 <summary><b>List of References </b> (Click to expand)</summary>
 
 - [Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
+- [Microsoft Fabric - Terraform (AzAPI provider) resource definition](https://learn.microsoft.com/en-us/azure/templates/microsoft.fabric/capacities?pivots=deployment-language-terraform)
+- [Fabric Terraform Quickstarts](https://github.com/microsoft/fabric-terraform-quickstart/tree/main)
 
 </details>
 
@@ -130,6 +132,7 @@ graph TD;
         terraform destroy -var-file terraform.tfvars
         ```
 
+        <img width="550" alt="image" src="https://github.com/user-attachments/assets/f2089d03-3a3d-431d-b462-8148ef519104">
 
 <div align="center">
   <h3 style="color: #4CAF50;">Total Visitors</h3>
