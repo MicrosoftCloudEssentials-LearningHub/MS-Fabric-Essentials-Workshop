@@ -21,7 +21,7 @@ Last updated: 2025-01-29
     - [Step 3: Verify the Installation](#step-3-verify-the-installation)
     - [Step 4: Initialize Terraform](#step-4-initialize-terraform)
 - [Resource Group Not Found](#resource-group-not-found)
-
+- [Resource Not Found](#resource-not-found)
 
 ## Terraform is not recognized
 
@@ -154,7 +154,25 @@ terraform init
 
 > Please ensure you create your resource group before running the configuration and deployment. This error occurs because the specified resource group does not exist.
 
-<img width="990" alt="image" src="https://github.com/user-attachments/assets/14c0a4a1-4209-4c46-8a72-8132f6dbbcec" />
+```
+Error: Failed to get existing workspaces: Error retrieving keys for Storage Account "examplestorageacct": storage.AccountsClient#ListKeys: Failure responding to request: StatusCode=404 -- Original Error: autorest/azure: Service returned an error. Status=404 Code="ResourceGroupNotFound" Message="Resource group 'RGWorkshopUserName' could not be found." but I want to create it
+```
+
+<p align="center">
+    <img width="990" alt="image" src="https://github.com/user-attachments/assets/14c0a4a1-4209-4c46-8a72-8132f6dbbcec" />
+</p>
+
+## Resource Not Found
+
+> Please ensure you create your storage account and container for backend before running the configuration and deployment. This error occurs because the specified storage account does not exist.
+
+```
+Error: Failed to get existing workspaces: Error retrieving keys for Storage Account "examplestorageacct": storage.AccountsClient#ListKeys: Failure responding to request: StatusCode=404 -- Original Error: autorest/azure: Service returned an error. Status=404 Code="ResourceNotFound" Message="The Resource 'Microsoft.Storage/storageAccounts/examplestorageacct' under resource group 'RGWorkshopUserName' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix"
+```
+
+<p align="center">
+    <img width="990" alt="image" src="https://github.com/user-attachments/assets/6c392d1e-32c5-4929-aaf7-6cdb853cf77d" />
+</p>
 
 
 <div align="center">
