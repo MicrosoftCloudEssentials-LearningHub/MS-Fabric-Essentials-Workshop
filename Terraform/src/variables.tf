@@ -36,18 +36,6 @@ variable "sql_database_name" {
   type        = string
 }
 
-# Variable for the Microsoft Fabric Capacity name
-variable "fabric_capacity_name" {
-  description = "The name of the Microsoft Fabric Capacity"
-  type        = string
-}
-
-# Variable for the SKU name for the Microsoft Fabric Capacity
-variable "fabric_sku_name" {
-  description = "The SKU name for the Microsoft Fabric Capacity"
-  type        = string
-}
-
 # Variable for the storage account name
 variable "storage_account_name" {
   description = "The name of the storage account for remote state storage"
@@ -70,4 +58,23 @@ variable "subscription_id" {
 variable "admin_principal_id" {
   description = "The principal ID of the capacity administrator"
   type        = string
+}
+
+# Variable for the SKU name for the Microsoft Fabric Capacity
+variable "fabric_capacity_sku" {
+  description = "The SKU for the Fabric Capacity."
+  type        = string
+}
+
+# Variable for the solution name
+variable "solution_name" {
+  description = "The name of the solution."
+  type        = string
+}
+
+# Variable for additional UPNs to be added as Fabric Capacity administrators
+variable "fabric_capacity_admin_upns" {
+  description = "Additional UPNs to be added as Fabric Capacity administrators."
+  type        = list(string)
+  default     = []
 }
