@@ -34,7 +34,7 @@ Last updated: 2025-01-29
 
 ## Overview
 
-~~~
+```
 .
 ├── README.md
 ├── src
@@ -44,8 +44,7 @@ Last updated: 2025-01-29
 ├────── terraform.tfvars
 ├────── remote-storage.tf
 ├────── outputs.tf
-~~~
-
+```
 
 - main.tf `(Main Terraform configuration file)`: This file contains the core infrastructure code. It defines the resources you want to create, such as virtual machines, networks, and storage. It's the primary file where you describe your infrastructure in a declarative manner.
 - variables.tf `(Variable definitions)`: This file is used to define variables that can be used throughout your Terraform configuration. By using variables, you can make your configuration more flexible and reusable. For example, you can define variables for resource names, sizes, and other parameters that might change between environments.
@@ -56,15 +55,14 @@ Last updated: 2025-01-29
 
 ## How to execute it 
 
-```mermaid
+```mermaid 
 graph TD;
     A[az login] --> B(terraform init)
     B --> C{Terraform provisioning stage}
-    C -->|Review| D[terraform plan -var-file=terraform.tfvars]
-    C -->|Order Now| E[terraform apply -var-file=terraform.tfvars]
-    C -->|Delete Resource (if needed)| F[terraform destroy -var-file=terraform.tfvars]
+    C -->|Review| D[terraform plan]
+    C -->|Order Now| E[terraform apply]
+    C -->|Delete Resource if needed| F[terraform destroy]
 ```
-
 
 1. **Login to Azure**: This command logs you into your Azure account. It opens a browser window where you can enter your Azure credentials. Once logged in, you can manage your Azure resources from the command line.
 
@@ -72,29 +70,40 @@ graph TD;
     az login
     ```
 
+<p align="center">
+    <img width="550" alt="image" src="https://github.com/user-attachments/assets/b8dd07b5-074d-4f3a-b7e9-c1bcd3faedda" />
+</p>
+
+<p align="center">
+    <img width="550" alt="image" src="https://github.com/user-attachments/assets/9c2c3a4d-bd1c-4bbf-bd7d-1270f1df8946" />
+</p>
+
 2. **Initialize Terraform**: Initializes the working directory containing the Terraform configuration files. It downloads the necessary provider plugins and sets up the backend for storing the state.
 
+    ``` sh
     terraform init
     ```
+
+   <img width="550" alt="image" src="https://github.com/user-attachments/assets/726c057a-ed81-4be7-a9ca-cc7c96dfa560" />
 
 3. **Terraform Provisioning Stage**: 
 
    - **Review**: Creates an execution plan, showing what actions Terraform will take to achieve the desired state defined in your configuration files. It uses the variable values specified in `terraform.tfvars`.
 
         ```sh
-        terraform plan -var-file=terraform.tfvars
+        terraform plan -var-file terraform.tfvars
         ```
 
    - **Order Now**: Applies the changes required to reach the desired state of the configuration. It prompts for confirmation before making any changes. It also uses the variable values specified in `terraform.tfvars`.
 
         ```sh
-        terraform apply -var-file=terraform.tfvars
+        terraform apply -var-file terraform.tfvars
         ```
 
    - **Remove**: Destroys the infrastructure managed by Terraform. It prompts for confirmation before deleting any resources. It also uses the variable values specified in `terraform.tfvars`.
     
         ```sh
-        terraform destroy -var-file=terraform.tfvars
+        terraform destroy -var-file terraform.tfvars
         ```
 
 
