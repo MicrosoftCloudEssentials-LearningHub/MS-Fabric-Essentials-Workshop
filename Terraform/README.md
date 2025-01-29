@@ -83,6 +83,9 @@ graph TD;
     C -->|Order Now| E[terraform apply]
     C -->|Delete Resource if needed| F[terraform destroy]
 ```
+> [!IMPORTANT]
+> Please modify `terraform.tfvars` with your information. Then run the following flow:
+
 
 1. **Login to Azure**: This command logs you into your Azure account. It opens a browser window where you can enter your Azure credentials. Once logged in, you can manage your Azure resources from the command line.
 
