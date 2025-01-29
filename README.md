@@ -14,17 +14,15 @@ Last updated: 2025-01-29
 
 This workshop follows two approaches:
 
-1. [Using the Azure Portal](#using-the-azure-portal): This approach involves creating the infrastructure and performing `all necessary steps through the Azure Portal` and its resources interface.
-2. `Using Terraform`: This approach focuses on `setting up the required infrastructure via Terraform`. It allows for source control of not only the solution code, connections, and setups `but also the infrastructure itself`.
-
-## Using the Azure portal
+1. [Infrastructure via Azure Portal](./AzurePortal/): This approach involves creating the infrastructure and performing `all necessary steps through the Azure Portal` and its resources interface.
+2. [Infrastructure via Terraform](./Terraform/): This approach focuses on `setting up the required infrastructure via Terraform`. It allows for source control of not only the solution code, connections, and setups `but also the infrastructure itself`.
 
 An introductory workshop on Microsoft Fabric:
 - [Fabric Overview](./0_Overview.md): Understand the core components and capabilities of Microsoft Fabric.
 - [Medallion Architecture](./AzurePortal/1_MedallionArch/): Explore the structured approach to data management.
 - [AI + LLMs](./AzurePortal/2_AI_LLMs/): Discover how artificial intelligence and large language models integrate with Fabric.
 - [AI Skills](./AzurePortal/3_AISkills.md): Get insights on using AI skills within the platform.
-- `CI/CD`: Learn about continuous integration and continuous deployment, including [deployment pipelines](./AzurePortal/4_CICD/0_deployment-pipelines/) and [GitHub integration](./AzurePortal/4_CICD/1_github-integration.md). 
+- `CI/CD`: Learn about continuous integration and continuous deployment, including [deployment pipelines](./AzurePortal/4_CICD/0_deployment-pipelines/) and [GitHub integration](./AzurePortal/4_CICD/1_github-integration.md).
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/db98dd56-651e-4aa3-ba94-d1899102de4b" alt="Centered Image" style="border: 2px solid #4CAF50; border-radius: 5px; padding: 5px;"/>
