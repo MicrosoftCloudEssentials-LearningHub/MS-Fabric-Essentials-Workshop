@@ -12,12 +12,20 @@ Last updated: 2025-01-29
 > [!IMPORTANT]
 > For more detailed and official training, please visit the [Microsoft official training site](https://learn.microsoft.com/en-us/training/)
 
-This workshop follows two approaches:
+For this workshop, you can set up your infrastructure using either of the following approaches:
 
-1. [Infrastructure via Azure Portal](./AzurePortal/): This approach involves creating the infrastructure and performing `all necessary steps through the Azure Portal` and its resources interface.
+1. [Infrastructure via Azure Portal](./AzurePortal/): This approach involves creating the infrastructure and performing `all necessary steps through the Azure Portal` and its resources interface. 
 2. [Infrastructure via Terraform](./Terraform/): This approach focuses on `setting up the required infrastructure via Terraform`. It allows for source control of not only the solution code, connections, and setups `but also the infrastructure itself`.
 
-An introductory workshop on Microsoft Fabric:
+## Where to start? 
+
+This is an introductory workshop on Microsoft Fabric. Please follow [each section](#content) as described below.
+
+> [!NOTE]
+> If you're using the [Infrastructure via Azure Portal](./AzurePortal/), go through [each section](#content) `from the start`. If you're opting for the [Infrastructure via Terraform](./Terraform/) approach, follow each [each section](#content) but `skip the creation of each resource`.
+
+## Content 
+
 - [Fabric Overview](./0_Overview.md): Understand the core components and capabilities of Microsoft Fabric.
 - [Medallion Architecture](./AzurePortal/1_MedallionArch/): Explore the structured approach to data management.
 - [AI + LLMs](./AzurePortal/2_AI_LLMs/): Discover how artificial intelligence and large language models integrate with Fabric.
