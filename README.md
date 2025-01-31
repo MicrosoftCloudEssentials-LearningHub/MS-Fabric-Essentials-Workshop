@@ -12,10 +12,32 @@ Last updated: 2025-01-29
 > [!IMPORTANT]
 > For more detailed and official training, please visit the [Microsoft official training site](https://learn.microsoft.com/en-us/training/)
 
+<details>
+<summary><b>Table of Content </b> (Click to expand)</summary>
+  
+- [Prerequisites](#prerequisites)
+- [Where to start?](#where-to-start)
+- [Content](#content)
+
+</details>
+
+
 For this workshop, you can set up your infrastructure using either of the following approaches:
 
 1. [Infrastructure via Azure Portal](./AzurePortal/): This approach involves creating the infrastructure and performing `all necessary steps through the Azure Portal` and its resources interface. 
 2. [Infrastructure via Terraform](./Terraform/): This approach focuses on `setting up the required infrastructure via Terraform`. It allows for source control of not only the solution code, connections, and setups `but also the infrastructure itself`.
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/16640052-7f57-443a-9efd-30855de5e231" alt="Centered Image" style="border: 2px solid #4CAF50; border-radius: 5px; padding: 5px;"/>
+</div>
+
+## Prerequisites
+
+- An `Azure subscription is required`. All other resources, including instructions for creating a Resource Group, are provided in this workshop.
+- If you choose to use the Terraform approach, please ensure that:
+  -  [Terraform is installed on your local machine](https://developer.hashicorp.com/terraform/tutorials/azure-get-started/install-cli#install-terraform).
+  -  [Install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) to work with both Terraform and Azure commands.
+
 
 ## Where to start? 
 
