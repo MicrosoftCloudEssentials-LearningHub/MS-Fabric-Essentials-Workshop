@@ -41,11 +41,14 @@ For this workshop, you can set up your infrastructure using either of the follow
 
 ## Where to start? 
 
-This is an introductory workshop on Microsoft Fabric. Please follow [each section](#content) as described below.
+This is an introductory workshop on Microsoft Fabric. Please follow as described below.
 
-> [!NOTE]
-> If you're using the [Infrastructure via Azure Portal](./AzurePortal/), go through [each section](#content) `from the start`. If you're opting for the [Infrastructure via Terraform](./Terraform/) approach, follow each [each section](#content) but `skip the creation of each resource`.
-
+- If you're choosing the [Infrastructure via Azure Portal](./AzurePortal/):
+    1. Go through [each section](#content) `from the start`.
+- If you're choosing the [Infrastructure via Terraform](./Terraform/) approach:
+    1. Please follow the [Terraform guide](https://github.com/MicrosoftCloudEssentials-LearningHub/MS-Fabric-Essentials-Workshop/blob/main/Terraform/README.md) to deploy the necessary Azure resources for the workshop.
+    2. Then, follow each [each section](#content) but `skip the creation of each resource`.
+       
 ## Content 
 
 - [Fabric Overview](./0_Overview.md): Understand the core components and capabilities of Microsoft Fabric.
