@@ -9,7 +9,7 @@ Last updated: 2025-01-29
 
 ------------------------------------------
 
-> Microsoft Fabric is a comprehensive data and analytics platform designed to unify various data operations and enhance AI capabilities. Fabric's OneLake datastore provides a unified data storage solution that supports differents data formats and sources. This feature simplifies data access and management, enabling efficient data preparation and model training.
+> Fabric's OneLake datastore provides a unified data storage solution that supports differents data formats and sources. This feature simplifies data access and management, enabling efficient data preparation and model training.
 
 <details>
 <summary><b>List of References </b> (Click to expand)</summary>
