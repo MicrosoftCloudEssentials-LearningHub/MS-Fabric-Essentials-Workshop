@@ -15,6 +15,8 @@ Last updated: 2025-01-29
 <summary><b>Table of References </b> (Click to expand)</summary>
 
 - [Fabric Draw.io icons](https://github.com/marclelijveld/Fabric-Icons/tree/main)
+- [TechExcel: Microsoft Fabric with Azure Databricks for Data Analytics (lvl 300 / CSU) lab](https://github.com/microsoft/TechExcel-Fabric-with-Databricks-for-Data-Analytics/blob/main/index.md) - repo
+- [TechExcel: Microsoft Fabric with Azure Databricks for Data Analytics (lvl 300 / CSU) lab](https://microsoft.github.io/TechExcel-Fabric-with-Databricks-for-Data-Analytics/) - guide 
 
 </details>
 
