@@ -53,6 +53,12 @@ This is an introductory workshop on Microsoft Fabric. Please follow as described
 
 - [Fabric Overview](./0_Overview.md): Understand the core components and capabilities of Microsoft Fabric.
 - [Medallion Architecture](./AzurePortal/1_MedallionArch/): Explore the structured approach to data management.
+
+    <div align="center">
+      <img src="https://github.com/user-attachments/assets/2c5141ea-4f3a-4054-b8bd-313efde24ff0" alt="Centered Image" style="border: 2px solid #4CAF50; border-radius: 2px; padding: 2px; width: 900px; height: auto;"/>
+    </div>
+
+
 - [AI + LLMs](./AzurePortal/2_AI_LLMs/): Discover how artificial intelligence and large language models integrate with Fabric.
 - [AI Skills](./AzurePortal/3_AISkills.md): Get insights on using AI skills within the platform.
 - `CI/CD`: Learn about continuous integration and continuous deployment, including [deployment pipelines](./AzurePortal/4_CICD/0_deployment-pipelines/) and [GitHub integration](./AzurePortal/4_CICD/1_github-integration.md).
