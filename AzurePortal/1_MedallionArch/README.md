@@ -111,7 +111,7 @@ https://github.com/user-attachments/assets/fdb64dd2-a6ec-4da0-a385-e55f875c8f8e
    - Determine the sources from which you'll ingest data.
    - List all the data sources such as databases, APIs, file systems, etc.
 
-     > Let's suppose you have your data locally as csv, you can upload your data to the raw layer:
+     > Let's suppose you have your data locally as csv, you can upload your data to the raw layer. Click [to access sample files in case you don't have any data at the moment](./sample_files)
         
         <img width="550" alt="image" src="https://github.com/user-attachments/assets/0ebd4ca9-80f6-4d1c-a28c-fc7ab6988538">
 
@@ -120,6 +120,8 @@ https://github.com/user-attachments/assets/fdb64dd2-a6ec-4da0-a385-e55f875c8f8e
         |  Load information as table   |   To a new one or existing one | 
         | --- | --- | 
         |  <img width="550" alt="image" src="https://github.com/user-attachments/assets/09994e75-3029-4f61-aac8-b50f7c5fd2b1"> |  <img width="550" alt="image" src="https://github.com/user-attachments/assets/2b25d187-85e2-48e7-9a97-e7549f28ed9c"> | 
+
+https://github.com/user-attachments/assets/56308a58-cf72-4f0f-bf3e-e9e1669fa0df
 
 2. **Create Dataflows or Pipelines**: Use Data Factory to create dataflows or pipelines that ingest data into the Bronze lakehouse.
    - In Data Factory, create a new pipeline.
