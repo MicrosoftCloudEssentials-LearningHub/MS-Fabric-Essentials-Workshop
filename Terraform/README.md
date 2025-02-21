@@ -89,7 +89,7 @@ graph TD;
 1. **Login to Azure**: This command logs you into your Azure account. It opens a browser window where you can enter your Azure credentials. Once logged in, you can manage your Azure resources from the command line.
 
     ```sh
-    cd ./terraform/src/
+    cd ./Terraform/src/
     ```
     
     ```sh
