@@ -84,7 +84,9 @@ graph TD;
     C -->|Delete Resource if needed| F[terraform destroy]
 ```
 > [!IMPORTANT]
-> Please modify `terraform.tfvars` with your information. Then run the following flow:
+> Please modify `terraform.tfvars` with your information, then run the following flow. If you need more visual guidance, please check the video that illustrates the provisioning steps. Be aware that the template uses an F64 Fabric capacity as SKU. Once deployed and activated, you can pause your capacity after you finish or delete the whole resource group after the workshop is completed.
+
+https://github.com/user-attachments/assets/1ab31707-6f4c-4ec7-9e92-5d5cc96ac5bb
 
 1. **Login to Azure**: This command logs you into your Azure account. It opens a browser window where you can enter your Azure credentials. Once logged in, you can manage your Azure resources from the command line.
 
