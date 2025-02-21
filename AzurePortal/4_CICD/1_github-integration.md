@@ -36,6 +36,8 @@ Last updated: 2025-01-29
 
 </details>
 
+https://github.com/user-attachments/assets/64f099a1-b749-47a6-b723-fa1cb5c575a3
+
 ## Connect a workspace to a Git repo
 
 > Only a workspace admin has the capability to connect a workspace to a repository. However, once the connection is established, anyone with the appropriate permission can work within the workspace. If you are not an admin, please request assistance from your admin to connect. To link a workspace to an Azure or GitHub repository, [follow these steps](https://learn.microsoft.com/en-us/fabric/cicd/git-integration/git-get-started?tabs=azure-devops%2CAzure%2Ccommit-to-git#connect-a-workspace-to-a-git-repo).
