@@ -5,7 +5,7 @@ Costa Rica
 [![GitHub](https://img.shields.io/badge/--181717?logo=github&logoColor=ffffff)](https://github.com/)
 [brown9804](https://github.com/brown9804)
 
-Last updated: 2025-01-29
+Last updated: 2025-02-21
 
 ------------------------------------------
 
@@ -73,27 +73,38 @@ Implementing a medallion architecture provides several benefits:
 
 ### Step 1: Set Up Your Environment
 
+> [!NOTE]
+> If you need more visual help, check out the video that walks you through the steps. Below is a detailed step-by-step guide.
+
 1. **Create a Fabric Workspace**: This will be your central hub for all activities.
-   - Navigate to the Fabric portal.
-   - Click on `Create a resource` and select `Fabric Workspace`.
+   - Click on `Create a resource` and create your Fabric Capacity if you haven't done so already.
+
+      <img width="550" alt="image" src="https://github.com/user-attachments/assets/8f259cac-1dcb-4129-9070-0b31899c4ab4">
+
+   - Go to the [Fabric portal](https://app.fabric.microsoft.com/).
+   - Click on `Workspaces`, then select either your existing workspace or create a new one by clicking `New Workspace`:
    - Provide a name and other required details, then create the workspace.
      
-      <img width="550" alt="image" src="https://github.com/user-attachments/assets/8f259cac-1dcb-4129-9070-0b31899c4ab4">
 
       <img width="550" alt="image" src="https://github.com/user-attachments/assets/2f3225fc-6aa6-4eeb-8207-75038b36f18f">
 
+   - Now, assign the Fabric Capacity to your workspace by clicking on `Workspace settings` and selecting the fabric capacity under the license.
+
       <img width="550" alt="image" src="https://github.com/user-attachments/assets/1831c97d-6b9a-4470-968d-e7803bc58b80">
 
+https://github.com/user-attachments/assets/c524741c-be91-4fe4-82bc-c841fae8c6c9
+
 2. **Create Lakehouses**: Set up three lakehouses for the Bronze, Silver, and Gold layers.
+
    - In your Fabric workspace, create three lakehouses named `raw_Bronze`, `cleansed_Silver`, and `curated_Gold`.
 
-    |  Go to Data Engineering   |   Create the 3 lakehouses  | 
-    | --- | --- | 
-    |<img src="https://github.com/user-attachments/assets/f0f5baf2-9ad2-4422-9089-14aa28ae5181" width="250"> | <img src="https://github.com/user-attachments/assets/5827c73a-1291-4fb6-a2c6-0c61f4808164" width="550"> | 
+      <img src="https://github.com/user-attachments/assets/5827c73a-1291-4fb6-a2c6-0c61f4808164" width="550"> 
 
       <img width="550" alt="image" src="https://github.com/user-attachments/assets/ca3c64c7-d414-4ec0-8cbc-cf39548bf758">
 
       <img width="958" alt="image" src="https://github.com/user-attachments/assets/828adf9d-8722-4bef-8694-8c22de330797">
+
+https://github.com/user-attachments/assets/fdb64dd2-a6ec-4da0-a385-e55f875c8f8e
 
 ### Step 2: Ingest Data into the Bronze Layer
 1. **Identify Data Sources**:
