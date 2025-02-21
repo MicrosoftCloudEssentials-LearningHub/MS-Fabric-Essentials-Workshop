@@ -123,37 +123,39 @@ https://github.com/user-attachments/assets/fdb64dd2-a6ec-4da0-a385-e55f875c8f8e
 
 https://github.com/user-attachments/assets/56308a58-cf72-4f0f-bf3e-e9e1669fa0df
 
+
+> Image you want to extract data from your `sql database`
+
+<img width="550" alt="image" src="https://github.com/user-attachments/assets/1b186362-8041-4bd7-b797-ea2061d80b63">
+
+> [!NOTE]
+> In case you don't have any data at the moment, please follow this video to create a sample:
+
+```sql
+CREATE TABLE dbo.Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    BirthDate DATE,
+    HireDate DATE,
+    JobTitle VARCHAR(50),
+    Salary DECIMAL(10, 4)
+);
+
+INSERT INTO dbo.Employees (EmployeeID, FirstName, LastName, BirthDate, HireDate, JobTitle, Salary)
+VALUES 
+(1, 'John', 'Doe', '1985-11-15', '2010-03-10', 'Software Engineer', 75000.0000),
+(2, 'Jane', 'Smith', '1990-05-22', '2012-07-18', 'Project Manager', 85000.0000),
+(3, 'Emily', 'Jones', '1988-04-17', '2014-06-25', 'Data Analyst', 65000.0000),
+(4, 'Michael', 'Brown', '1982-06-21', '2008-09-15', 'HR Specialist', 55000.0000),
+(5, 'Sarah', 'Davis', '1995-09-30', '2020-11-20', 'Marketing Specialist', 60000.0000);
+```
+
+https://github.com/user-attachments/assets/357184bf-cc49-4311-84d4-6369514b3366
+
 2. **Create Dataflows or Pipelines**: Use Data Factory to create dataflows or pipelines that ingest data into the Bronze lakehouse.
    - In Data Factory, create a new pipeline.
    - Add activities to the pipeline to ingest data from the identified sources.
-
-     > Image you want to extract data from your `sql database`
-     
-        <img width="550" alt="image" src="https://github.com/user-attachments/assets/1b186362-8041-4bd7-b797-ea2061d80b63">
-
-        > Sample table:
-        
-        ```sql
-        CREATE TABLE dbo.Employees (
-            EmployeeID INT PRIMARY KEY,
-            FirstName VARCHAR(50),
-            LastName VARCHAR(50),
-            BirthDate DATE,
-            HireDate DATE,
-            JobTitle VARCHAR(50),
-            Salary DECIMAL(10, 4)
-        );
-        
-        INSERT INTO dbo.Employees (EmployeeID, FirstName, LastName, BirthDate, HireDate, JobTitle, Salary)
-        VALUES 
-        (1, 'John', 'Doe', '1985-11-15', '2010-03-10', 'Software Engineer', 75000.0000),
-        (2, 'Jane', 'Smith', '1990-05-22', '2012-07-18', 'Project Manager', 85000.0000),
-        (3, 'Emily', 'Jones', '1988-04-17', '2014-06-25', 'Data Analyst', 65000.0000),
-        (4, 'Michael', 'Brown', '1982-06-21', '2008-09-15', 'HR Specialist', 55000.0000),
-        (5, 'Sarah', 'Davis', '1995-09-30', '2020-11-20', 'Marketing Specialist', 60000.0000);
-        ```
-
-
    - **Configure Data Ingestion**: Set up the data ingestion process to load data into the Bronze layer in its raw format.
        - Configure the source and destination settings in the pipeline activities.
        - Ensure the data is being ingested into the `raw_Bronze` lakehouse.
