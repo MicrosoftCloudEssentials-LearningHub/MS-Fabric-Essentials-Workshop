@@ -5,7 +5,7 @@ Costa Rica
 [![GitHub](https://img.shields.io/badge/--181717?logo=github&logoColor=ffffff)](https://github.com/)
 [brown9804](https://github.com/brown9804)
 
-Last updated: 2025-01-29
+Last updated: 2025-02-21
 
 ------------------------------------------
 
@@ -73,34 +73,45 @@ Implementing a medallion architecture provides several benefits:
 
 ### Step 1: Set Up Your Environment
 
+> [!NOTE]
+> If you need more visual help, check out the video that walks you through the steps. Below is a detailed step-by-step guide.
+
 1. **Create a Fabric Workspace**: This will be your central hub for all activities.
-   - Navigate to the Fabric portal.
-   - Click on `Create a resource` and select `Fabric Workspace`.
+   - Click on `Create a resource` and create your Fabric Capacity if you haven't done so already.
+
+      <img width="550" alt="image" src="https://github.com/user-attachments/assets/8f259cac-1dcb-4129-9070-0b31899c4ab4">
+
+   - Go to the [Fabric portal](https://app.fabric.microsoft.com/).
+   - Click on `Workspaces`, then select either your existing workspace or create a new one by clicking `New Workspace`:
    - Provide a name and other required details, then create the workspace.
      
-      <img width="550" alt="image" src="https://github.com/user-attachments/assets/8f259cac-1dcb-4129-9070-0b31899c4ab4">
 
       <img width="550" alt="image" src="https://github.com/user-attachments/assets/2f3225fc-6aa6-4eeb-8207-75038b36f18f">
 
+   - Now, assign the Fabric Capacity to your workspace by clicking on `Workspace settings` and selecting the fabric capacity under the license.
+
       <img width="550" alt="image" src="https://github.com/user-attachments/assets/1831c97d-6b9a-4470-968d-e7803bc58b80">
 
+https://github.com/user-attachments/assets/c524741c-be91-4fe4-82bc-c841fae8c6c9
+
 2. **Create Lakehouses**: Set up three lakehouses for the Bronze, Silver, and Gold layers.
+
    - In your Fabric workspace, create three lakehouses named `raw_Bronze`, `cleansed_Silver`, and `curated_Gold`.
 
-    |  Go to Data Engineering   |   Create the 3 lakehouses  | 
-    | --- | --- | 
-    |<img src="https://github.com/user-attachments/assets/f0f5baf2-9ad2-4422-9089-14aa28ae5181" width="250"> | <img src="https://github.com/user-attachments/assets/5827c73a-1291-4fb6-a2c6-0c61f4808164" width="550"> | 
+      <img src="https://github.com/user-attachments/assets/5827c73a-1291-4fb6-a2c6-0c61f4808164" width="550"> 
 
       <img width="550" alt="image" src="https://github.com/user-attachments/assets/ca3c64c7-d414-4ec0-8cbc-cf39548bf758">
 
       <img width="958" alt="image" src="https://github.com/user-attachments/assets/828adf9d-8722-4bef-8694-8c22de330797">
+
+https://github.com/user-attachments/assets/fdb64dd2-a6ec-4da0-a385-e55f875c8f8e
 
 ### Step 2: Ingest Data into the Bronze Layer
 1. **Identify Data Sources**:
    - Determine the sources from which you'll ingest data.
    - List all the data sources such as databases, APIs, file systems, etc.
 
-     > Let's suppose you have your data locally as csv, you can upload your data to the raw layer:
+     > Let's suppose you have your data locally as csv, you can upload your data to the raw layer. Click [to access sample files in case you don't have any data at the moment](./sample_files)
         
         <img width="550" alt="image" src="https://github.com/user-attachments/assets/0ebd4ca9-80f6-4d1c-a28c-fc7ab6988538">
 
@@ -110,37 +121,45 @@ Implementing a medallion architecture provides several benefits:
         | --- | --- | 
         |  <img width="550" alt="image" src="https://github.com/user-attachments/assets/09994e75-3029-4f61-aac8-b50f7c5fd2b1"> |  <img width="550" alt="image" src="https://github.com/user-attachments/assets/2b25d187-85e2-48e7-9a97-e7549f28ed9c"> | 
 
+https://github.com/user-attachments/assets/56308a58-cf72-4f0f-bf3e-e9e1669fa0df
+
+> Suppose you need to extract data from your `sql database`
+
+<img width="550" alt="image" src="https://github.com/user-attachments/assets/1b186362-8041-4bd7-b797-ea2061d80b63">
+
+> [!NOTE]
+> In case you don't have any data at the moment, please follow this video to create a sample:
+
+```sql
+CREATE TABLE dbo.Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    BirthDate DATE,
+    HireDate DATE,
+    JobTitle VARCHAR(50),
+    Salary DECIMAL(10, 4)
+);
+
+INSERT INTO dbo.Employees (EmployeeID, FirstName, LastName, BirthDate, HireDate, JobTitle, Salary)
+VALUES 
+(1, 'John', 'Doe', '1985-11-15', '2010-03-10', 'Software Engineer', 75000.0000),
+(2, 'Jane', 'Smith', '1990-05-22', '2012-07-18', 'Project Manager', 85000.0000),
+(3, 'Emily', 'Jones', '1988-04-17', '2014-06-25', 'Data Analyst', 65000.0000),
+(4, 'Michael', 'Brown', '1982-06-21', '2008-09-15', 'HR Specialist', 55000.0000),
+(5, 'Sarah', 'Davis', '1995-09-30', '2020-11-20', 'Marketing Specialist', 60000.0000);
+```
+
+https://github.com/user-attachments/assets/357184bf-cc49-4311-84d4-6369514b3366
+
+> [!IMPORTANT]
+> Besides using Data pipelines to bring your SQL information, you can also leverage Microsoft Fabric's mirrored SQL capability. This feature allows you to create a mirrored copy of your SQL database, improving data availability, reliability, and disaster recovery. By maintaining a synchronized copy of your database in a different location, it ensures that your data is always accessible, even in the event of a failure or outage.
+
+https://github.com/user-attachments/assets/2a64762a-f120-4448-b0fb-7a49f4d1bedb
+
 2. **Create Dataflows or Pipelines**: Use Data Factory to create dataflows or pipelines that ingest data into the Bronze lakehouse.
    - In Data Factory, create a new pipeline.
    - Add activities to the pipeline to ingest data from the identified sources.
-
-     > Image you want to extract data from your `sql database`
-     
-        <img width="550" alt="image" src="https://github.com/user-attachments/assets/1b186362-8041-4bd7-b797-ea2061d80b63">
-
-        > Sample table:
-        
-        ```sql
-        CREATE TABLE dbo.Employees (
-            EmployeeID INT PRIMARY KEY,
-            FirstName VARCHAR(50),
-            LastName VARCHAR(50),
-            BirthDate DATE,
-            HireDate DATE,
-            JobTitle VARCHAR(50),
-            Salary DECIMAL(10, 4)
-        );
-        
-        INSERT INTO dbo.Employees (EmployeeID, FirstName, LastName, BirthDate, HireDate, JobTitle, Salary)
-        VALUES 
-        (1, 'John', 'Doe', '1985-11-15', '2010-03-10', 'Software Engineer', 75000.0000),
-        (2, 'Jane', 'Smith', '1990-05-22', '2012-07-18', 'Project Manager', 85000.0000),
-        (3, 'Emily', 'Jones', '1988-04-17', '2014-06-25', 'Data Analyst', 65000.0000),
-        (4, 'Michael', 'Brown', '1982-06-21', '2008-09-15', 'HR Specialist', 55000.0000),
-        (5, 'Sarah', 'Davis', '1995-09-30', '2020-11-20', 'Marketing Specialist', 60000.0000);
-        ```
-
-
    - **Configure Data Ingestion**: Set up the data ingestion process to load data into the Bronze layer in its raw format.
        - Configure the source and destination settings in the pipeline activities.
        - Ensure the data is being ingested into the `raw_Bronze` lakehouse.
@@ -190,7 +209,6 @@ Implementing a medallion architecture provides several benefits:
         ```
   
         <img width="550" alt="image" src="https://github.com/user-attachments/assets/16181f57-67b6-4141-8259-cf2ca0fc072e">
-
         
         > If you want see more, click [here](./src/0_notebook_bronze_to_silver.ipynb) to see a sample of the notebook.
         
