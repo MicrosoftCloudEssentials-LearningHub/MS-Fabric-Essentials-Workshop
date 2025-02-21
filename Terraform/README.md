@@ -5,7 +5,7 @@ Costa Rica
 [![GitHub](https://img.shields.io/badge/--181717?logo=github&logoColor=ffffff)](https://github.com/)
 [brown9804](https://github.com/brown9804)
 
-Last updated: 2025-01-29
+Last updated: 2025-02-21
 
 ------------------------------------------
 
@@ -88,6 +88,10 @@ graph TD;
 
 1. **Login to Azure**: This command logs you into your Azure account. It opens a browser window where you can enter your Azure credentials. Once logged in, you can manage your Azure resources from the command line.
 
+    ```sh
+    cd ./Terraform/src/
+    ```
+    
     ```sh
     az login
     ```
