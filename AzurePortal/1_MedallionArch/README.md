@@ -123,8 +123,7 @@ https://github.com/user-attachments/assets/fdb64dd2-a6ec-4da0-a385-e55f875c8f8e
 
 https://github.com/user-attachments/assets/56308a58-cf72-4f0f-bf3e-e9e1669fa0df
 
-
-> Image you want to extract data from your `sql database`
+> Suppose you need to extract data from your `sql database`
 
 <img width="550" alt="image" src="https://github.com/user-attachments/assets/1b186362-8041-4bd7-b797-ea2061d80b63">
 
@@ -152,6 +151,11 @@ VALUES
 ```
 
 https://github.com/user-attachments/assets/357184bf-cc49-4311-84d4-6369514b3366
+
+> [!IMPORTANT]
+> Besides using Data pipelines to bring your SQL information, you can also leverage Microsoft Fabric's mirrored SQL capability. This feature allows you to create a mirrored copy of your SQL database, improving data availability, reliability, and disaster recovery. By maintaining a synchronized copy of your database in a different location, it ensures that your data is always accessible, even in the event of a failure or outage.
+
+https://github.com/user-attachments/assets/2a64762a-f120-4448-b0fb-7a49f4d1bedb
 
 2. **Create Dataflows or Pipelines**: Use Data Factory to create dataflows or pipelines that ingest data into the Bronze lakehouse.
    - In Data Factory, create a new pipeline.
@@ -205,7 +209,6 @@ https://github.com/user-attachments/assets/357184bf-cc49-4311-84d4-6369514b3366
         ```
   
         <img width="550" alt="image" src="https://github.com/user-attachments/assets/16181f57-67b6-4141-8259-cf2ca0fc072e">
-
         
         > If you want see more, click [here](./src/0_notebook_bronze_to_silver.ipynb) to see a sample of the notebook.
         
