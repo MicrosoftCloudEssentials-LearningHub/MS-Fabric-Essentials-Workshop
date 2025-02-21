@@ -155,6 +155,12 @@ https://github.com/user-attachments/assets/357184bf-cc49-4311-84d4-6369514b3366
 > [!IMPORTANT]
 > Besides using Data pipelines to bring your SQL information, you can also leverage Microsoft Fabric's mirrored SQL capability. This feature allows you to create a mirrored copy of your SQL database, improving data availability, reliability, and disaster recovery. By maintaining a synchronized copy of your database in a different location, it ensures that your data is always accessible, even in the event of a failure or outage.
 
+> [!NOTE]
+> `The mirroring process can involve both inbound and outbound connections`. Inbound connections refer to data coming into Azure from external sources, such as an on-premises SQL database being mirrored in Azure. Outbound connections, on the other hand, refer to data going out from Azure to external destinations, like mirroring an Azure SQL database to Microsoft Fabric. This setup allows for seamless data flow and integration across different platforms, ensuring data consistency and availability. <br/> <br/>
+> `For example, both Azure SQL Database and Microsoft Fabric are Microsoft products. However, the concept of outbound connections still applies because the data is moving from one service (Azure SQL Database) to another service (Microsoft Fabric), even though they are both within the Microsoft ecosystem. This movement of data is considered outbound because it is leaving the Azure SQL Database environment and entering the Microsoft Fabric environment`. <br/> <br/>
+> Under the Zero Trust Architecture, both inbound and outbound connections are treated with the same level of scrutiny and security protocols. This means that whether the connection is inbound or outbound, it is subject to strict verification processes to ensure it is safe and authorized. Key principles of Zero Trust include verification of every access request, least privilege access, continuous monitoring, and micro-segmentation. By applying these principles, Azure ensures that both inbound and outbound connections are secure, reducing the risk of unauthorized access and data breaches.
+
+
 https://github.com/user-attachments/assets/2a64762a-f120-4448-b0fb-7a49f4d1bedb
 
 2. **Create Dataflows or Pipelines**: Use Data Factory to create dataflows or pipelines that ingest data into the Bronze lakehouse.
