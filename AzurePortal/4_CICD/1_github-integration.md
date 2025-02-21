@@ -6,7 +6,7 @@ Costa Rica
 [![GitHub](https://img.shields.io/badge/--181717?logo=github&logoColor=ffffff)](https://github.com/)
 [brown9804](https://github.com/brown9804)
 
-Last updated: 2025-01-29
+Last updated: 2025-02-21
 
 ----------
 
@@ -35,6 +35,8 @@ Last updated: 2025-01-29
 - [Considerations and limitations](#considerations-and-limitations)
 
 </details>
+
+https://github.com/user-attachments/assets/64f099a1-b749-47a6-b723-fa1cb5c575a3
 
 ## Connect a workspace to a Git repo
 
