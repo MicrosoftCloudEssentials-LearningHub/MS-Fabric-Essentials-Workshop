@@ -95,15 +95,16 @@ Implementing a medallion architecture provides several benefits:
 https://github.com/user-attachments/assets/c524741c-be91-4fe4-82bc-c841fae8c6c9
 
 2. **Create Lakehouses**: Set up three lakehouses for the Bronze, Silver, and Gold layers.
+
    - In your Fabric workspace, create three lakehouses named `raw_Bronze`, `cleansed_Silver`, and `curated_Gold`.
 
-    |  Go to Data Engineering   |   Create the 3 lakehouses  | 
-    | --- | --- | 
-    |<img src="https://github.com/user-attachments/assets/f0f5baf2-9ad2-4422-9089-14aa28ae5181" width="250"> | <img src="https://github.com/user-attachments/assets/5827c73a-1291-4fb6-a2c6-0c61f4808164" width="550"> | 
+      <img src="https://github.com/user-attachments/assets/5827c73a-1291-4fb6-a2c6-0c61f4808164" width="550"> 
 
       <img width="550" alt="image" src="https://github.com/user-attachments/assets/ca3c64c7-d414-4ec0-8cbc-cf39548bf758">
 
       <img width="958" alt="image" src="https://github.com/user-attachments/assets/828adf9d-8722-4bef-8694-8c22de330797">
+
+https://github.com/user-attachments/assets/fdb64dd2-a6ec-4da0-a385-e55f875c8f8e
 
 ### Step 2: Ingest Data into the Bronze Layer
 1. **Identify Data Sources**:
