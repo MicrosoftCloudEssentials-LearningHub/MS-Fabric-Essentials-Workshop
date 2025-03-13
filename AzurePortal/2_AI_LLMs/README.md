@@ -5,7 +5,7 @@ Costa Rica
 [![GitHub](https://img.shields.io/badge/--181717?logo=github&logoColor=ffffff)](https://github.com/)
 [brown9804](https://github.com/brown9804)
 
-Last updated: 2025-01-29
+Last updated: 2025-03-13
 
 ------------------------------------------
 
@@ -197,6 +197,10 @@ Make sure to replace `"your_openai_api_key"`, `"https://your_openai_api_base/"`,
 
 ### Basic Usage of LangChain Transformer
 
+> [!NOTE]
+> E.g: Automate the process of generating definitions for technology terms using a language model.
+> `The LangChain Transformer` is a tool that makes it easy to use advanced language models for `generating and transforming text`. It works by `setting up a template for what you want to create, linking this template to a language model, and then processing your data to produce the desired output`. This setup `helps automate tasks like defining technology terms or generating other text-based content`, making your workflow smoother and more efficient.
+
 > `LangChain Transformer helps you automate the process of generating and transforming text data using advanced language models`, making it easier to integrate AI capabilities into your data workflows. <br/>
 > 1. `Prompt Creation`: Start by `defining a template for the kind of text you want to generate or analyze`. For example, you might create a prompt that asks the model to define a specific technology term.  <br/>
 > 2. `Chain Setup`: Then `set up a chain that links this prompt to a language model`. This chain is responsible for sending the prompt to the model and receiving the generated response.  <br/>
@@ -282,6 +286,10 @@ Make sure to replace `"your_openai_api_key"`, `"https://your_openai_api_base/"`,
      ```
 
 ### Using LangChain for Large Scale Literature Review
+
+> [!NOTE]
+> E.g: Automating the extraction and summarization of academic papers: script for an agent using LangChain to extract content from an online PDF and generate a prompt based on that content. 
+> An `agent` in the context of programming and artificial intelligence is a `software entity that performs tasks autonomously`. It can interact with its` environment, make decisions, and execute actions based on predefined rules or learned behavior.`
 
 1. **Define Functions for Content Extraction and Prompt Generation**: Extract content from PDFs linked in arXiv papers and generate prompts for extracting specific information.
 
