@@ -5,11 +5,11 @@ Costa Rica
 [![GitHub](https://img.shields.io/badge/--181717?logo=github&logoColor=ffffff)](https://github.com/)
 [brown9804](https://github.com/brown9804)
 
-Last updated: 2025-01-29
+Last updated: 2025-03-13
 
 ----------
 
-> Fabric AI Skills allow you to create custom conversational Q&A systems using generative AI. By setting up these skills, you can enable your colleagues to ask questions and receive reliable, data-driven answers. This involves providing instructions and examples to guide the AI, ensuring it understands your organization’s context and data before being widely shared.
+> AI skills in Microsoft Fabric enable users to `create conversational AI experiences that answer questions about data stored in lakehouses, warehouses, Power BI semantic models, and KQL databases`. These skills make data insights accessible and actionable, allowing users to `interact with data naturally and receive relevant answers without needing technical expertise`. You can create custom Q&A systems using generative AI, guiding the AI with instructions and examples to ensure it understands your organization's context and data.
 
 Key Features:
 - Customizable Q&A Systems: Tailor the AI to answer specific questions relevant to your organization.
@@ -21,11 +21,12 @@ Key Features:
 <details>
 <summary><b>List of References </b> (Click to expand)</summary>
 
+- [AI skill concepts (preview)](https://learn.microsoft.com/en-us/fabric/data-science/concept-ai-skill)
 - [How to create an AI skill (preview)](https://learn.microsoft.com/en-us/fabric/data-science/how-to-create-ai-skill)
 - [Introducing AI Skills in Microsoft Fabric](https://blog.fabric.microsoft.com/en-us/blog/introducing-ai-skills-in-microsoft-fabric-now-in-public-preview/)
 - [AI skill scenario (preview)](https://learn.microsoft.com/en-us/fabric/data-science/ai-skill-scenario)
 - [Prebuilt Azure AI services in Fabric](https://blog.fabric.microsoft.com/en-us/blog/prebuilt-azure-ai-services-in-fabric-2?ft=02-2024:date)
-- [AI skill example with the AdventureWorks dataset -preview](https://learn.microsoft.com/en-us/fabric/data-science/ai-skill-scenario)
+- [AI skill example with the AdventureWorks dataset -preview](https://learn.microsoft.com/en-us/fabric/data-science/ai-skill-scenario): `This example sets up a custom OpenAI client to interact with a conversational AI system. It sends a question about data sources, waits for a response, and prints the conversation`. The client handles authentication using a token and manages conversation threads programmatically. The data sources it can query include lakehouses, warehouses, Power BI semantic models, and KQL databases. Finally, it cleans up by deleting the conversation thread.
 
 </details>
 
