@@ -9,8 +9,6 @@ Last updated: 2025-01-29
 
 ------------------------------------------
 
-## Wiki 
-
 <details>
 <summary><b>List of references</b> (Click to expand)</summary>
 
@@ -22,14 +20,9 @@ Last updated: 2025-01-29
 
 </details>
 
-## Content 
-
-
 <details>
 <summary><b>List of Contents</b> (Click to expand)</summary>
 
-- [Wiki](#wiki)
-- [Content](#content)
 - [Overview](#overview)
 - [OneLake in Fabric](#onelake-in-fabric)
     - [Lakehouse & Data Warehouse](#lakehouse--data-warehouse)
