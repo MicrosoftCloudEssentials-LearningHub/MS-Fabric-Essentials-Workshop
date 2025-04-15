@@ -11,7 +11,6 @@ Last updated: 2025-01-29
 
 ## Content 
 
-- [Content](#content)
 - [Terraform is not recognized](#terraform-is-not-recognized)
     - [Step 1: Download Terraform](#step-1-download-terraform)
     - [Step 2: Install Terraform](#step-2-install-terraform)
