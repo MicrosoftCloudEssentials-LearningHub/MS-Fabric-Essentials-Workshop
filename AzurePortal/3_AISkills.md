@@ -9,14 +9,6 @@ Last updated: 2025-03-13
 
 ----------
 
-> AI skills in Microsoft Fabric enable users to `create conversational AI experiences that answer questions about data stored in lakehouses, warehouses, Power BI semantic models, and KQL databases`. These skills make data insights accessible and actionable, allowing users to `interact with data naturally and receive relevant answers without needing technical expertise`. You can create custom Q&A systems using generative AI, guiding the AI with instructions and examples to ensure it understands your organization's context and data.
-
-Key Features:
-- Customizable Q&A Systems: Tailor the AI to answer specific questions relevant to your organization.
-- Generative AI: Leverage advanced AI to interact with your data, enhancing data-driven decision-making.
-- Ease of Use: Once set up, users can simply ask questions and get accurate answers without needing deep technical knowledge.
-
-## References 
 
 <details>
 <summary><b>List of References </b> (Click to expand)</summary>
@@ -27,22 +19,25 @@ Key Features:
 - [AI skill scenario (preview)](https://learn.microsoft.com/en-us/fabric/data-science/ai-skill-scenario)
 - [Prebuilt Azure AI services in Fabric](https://blog.fabric.microsoft.com/en-us/blog/prebuilt-azure-ai-services-in-fabric-2?ft=02-2024:date)
 - [AI skill example with the AdventureWorks dataset -preview](https://learn.microsoft.com/en-us/fabric/data-science/ai-skill-scenario): `This example sets up a custom OpenAI client to interact with a conversational AI system. It sends a question about data sources, waits for a response, and prints the conversation`. The client handles authentication using a token and manages conversation threads programmatically. The data sources it can query include lakehouses, warehouses, Power BI semantic models, and KQL databases. Finally, it cleans up by deleting the conversation thread.
+- [Create a Fabric data agent (preview)](https://learn.microsoft.com/en-us/fabric/data-science/how-to-create-data-agent)
 
 </details>
-
-## Content
 
 <details>
 <summary><b>Table of Content </b> (Click to expand)</summary>
 
-- [References](#references)
-- [Content](#content)
 - [Setup required](#setup-required)
 - [How it works](#how-it-works)
 - [Examples of what to ask](#examples-of-what-to-ask)
 
 </details>
 
+> AI skills in Microsoft Fabric enable users to `create conversational AI experiences that answer questions about data stored in lakehouses, warehouses, Power BI semantic models, and KQL databases`. These skills make data insights accessible and actionable, allowing users to `interact with data naturally and receive relevant answers without needing technical expertise`. You can create custom Q&A systems using generative AI, guiding the AI with instructions and examples to ensure it understands your organization's context and data.
+
+Key Features:
+- Customizable Q&A Systems: Tailor the AI to answer specific questions relevant to your organization.
+- Generative AI: Leverage advanced AI to interact with your data, enhancing data-driven decision-making.
+- Ease of Use: Once set up, users can simply ask questions and get accurate answers without needing deep technical knowledge.
 
 ## Setup required
 
