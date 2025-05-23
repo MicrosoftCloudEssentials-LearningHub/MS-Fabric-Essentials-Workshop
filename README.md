@@ -9,6 +9,9 @@ Last updated: 2025-02-21
 
 ------------------------------------------
 
+> [!TIP]
+> Click to read more about [Fabric Roadmap](https://roadmap.fabric.microsoft.com/?product=administration%2Cgovernanceandsecurity)
+
 > [!IMPORTANT]
 > For more detailed and official training, please visit the [Microsoft official training site](https://learn.microsoft.com/en-us/training/)
 
