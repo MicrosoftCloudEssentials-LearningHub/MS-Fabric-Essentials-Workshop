@@ -297,7 +297,9 @@ https://github.com/user-attachments/assets/2a64762a-f120-4448-b0fb-7a49f4d1bedb
         
         <img width="550" alt="image" src="https://github.com/user-attachments/assets/01cb521f-8529-4097-95bf-7c30a92fefd2">
 
+<!-- START BADGE -->
 <div align="center">
-  <h3 style="color: #4CAF50;">Total Visitors</h3>
-  <img src="https://profile-counter.glitch.me/brown9804/count.svg" alt="Visitor Count" style="border: 2px solid #4CAF50; border-radius: 5px; padding: 5px;"/>
+  <img src="https://img.shields.io/badge/Total%20views-31-limegreen" alt="Total views">
+  <p>Refresh Date: 2025-07-16</p>
 </div>
+<!-- END BADGE -->
