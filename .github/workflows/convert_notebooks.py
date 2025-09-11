@@ -15,14 +15,21 @@ from nbformat.validator import validate
 def process_notebooks(directory="."):
     """Find and process all notebook files in the repository"""
     notebook_files = []
+    print(f"Searching for notebooks in directory: {directory}")
     for root, dirs, files in os.walk(directory):
+        # Skip directories that should be excluded
         if '.git' in dirs:
             dirs.remove('.git')  # Skip git directory
         if '.github' in dirs:
             dirs.remove('.github')  # Skip GitHub directory
+        if '.venv' in dirs:
+            dirs.remove('.venv')  # Skip virtual environments
+        
         for file in files:
             if file.endswith('.ipynb'):
-                notebook_files.append(os.path.join(root, file))
+                notebook_path = os.path.join(root, file)
+                print(f"Found notebook: {notebook_path}")
+                notebook_files.append(notebook_path)
     
     print(f"Found {len(notebook_files)} notebooks to process")
     
@@ -148,4 +155,7 @@ def convert_notebook(filepath):
 
 if __name__ == "__main__":
     print("Rendering notebooks for GitHub compatibility...")
-    process_notebooks()
+    # Get the repository root directory from environment variable if available
+    repo_root = os.environ.get('GITHUB_WORKSPACE', '.')
+    print(f"Repository root: {repo_root}")
+    process_notebooks(repo_root)
