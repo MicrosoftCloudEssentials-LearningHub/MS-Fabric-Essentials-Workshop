@@ -24,7 +24,6 @@ Last updated: 2025-09-11
 
 </details>
 
-
 For this workshop, you can set up your infrastructure using either of the following approaches:
 
 1. [Infrastructure via Azure Portal](./AzurePortal/): This approach involves creating the infrastructure and performing `all necessary steps through the Azure Portal` and its resources interface. 
