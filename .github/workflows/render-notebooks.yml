@@ -1,0 +1,184 @@
+name: Format Notebook for GitHub
+
+on:
+  push:
+    paths:
+      - '**.ipynb'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:  # Allows manual triggering
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  format-notebooks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install nbformat nbconvert jupyter
+
+      - name: Check and fix notebook format
+        run: |
+          # Create a script to fix notebooks
+          cat > fix_notebooks.py << 'EOF'
+          import os
+          import json
+          import nbformat
+          from nbformat.validator import validate
+          
+          # Find all notebook files
+          notebook_files = []
+          for root, dirs, files in os.walk('.'):
+              if '.git' in dirs:
+                  dirs.remove('.git')
+              for file in files:
+                  if file.endswith('.ipynb'):
+                      notebook_files.append(os.path.join(root, file))
+          
+          print(f"Found {len(notebook_files)} notebooks to process")
+          
+          # Process each notebook
+          for nb_path in notebook_files:
+              print(f"Processing {nb_path}")
+              try:
+                  # Read the notebook
+                  with open(nb_path, 'r', encoding='utf-8') as f:
+                      content = f.read()
+                      
+                  # Handle VS Code XML format
+                  if '<VSCode.Cell' in content:
+                      print(f"  Converting from VS Code format...")
+                      # This is a simple conversion - in a real workflow you'd need more sophisticated parsing
+                      cells = []
+                      
+                      # Extract markdown and code cells
+                      import re
+                      cell_pattern = re.compile(r'<VSCode.Cell.*?language="(.*?)".*?>(.*?)</VSCode.Cell>', re.DOTALL)
+                      for match in cell_pattern.finditer(content):
+                          cell_type, cell_content = match.groups()
+                          
+                          if cell_type == "markdown":
+                              cells.append(nbformat.v4.new_markdown_cell(cell_content.strip()))
+                          elif cell_type in ["python", "javascript", "java", "typescript"]:
+                              cells.append(nbformat.v4.new_code_cell(cell_content.strip()))
+                      
+                      # Create a new notebook
+                      nb = nbformat.v4.new_notebook()
+                      nb.cells = cells
+                      
+                      # Add metadata
+                      nb.metadata = {
+                          "kernelspec": {
+                              "display_name": "Python 3",
+                              "language": "python",
+                              "name": "python3"
+                          },
+                          "language_info": {
+                              "codemirror_mode": {
+                                  "name": "ipython",
+                                  "version": 3
+                              },
+                              "file_extension": ".py",
+                              "mimetype": "text/x-python",
+                              "name": "python",
+                              "nbconvert_exporter": "python",
+                              "pygments_lexer": "ipython3",
+                              "version": "3.8.10"
+                          }
+                      }
+                  else:
+                      # Standard JSON format notebook
+                      nb = nbformat.reads(content, as_version=4)
+                  
+                  # Ensure widget state exists if needed
+                  if "widgets" in str(content):
+                      print(f"  Adding widget state metadata...")
+                      if "metadata" not in nb:
+                          nb["metadata"] = {}
+                      if "widgets" not in nb["metadata"]:
+                          nb.metadata["widgets"] = {
+                              "application/vnd.jupyter.widget-state+json": {
+                                  "state": {},
+                                  "version_major": 2,
+                                  "version_minor": 0
+                              }
+                          }
+                  
+                  # Validate the notebook
+                  validate(nb)
+                  
+                  # Write the fixed notebook
+                  with open(nb_path, 'w', encoding='utf-8') as f:
+                      nbformat.write(nb, f)
+                  
+                  print(f"  Successfully processed {nb_path}")
+                  
+              except Exception as e:
+                  print(f"  Error processing {nb_path}: {str(e)}")
+                  continue
+          EOF
+          
+          # Run the notebook fixing script
+          python fix_notebooks.py
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit changes (if any)
+        run: |
+          git add "*.ipynb"
+          git commit -m "Fix notebook format for GitHub compatibility" || echo "No changes to commit"
+
+      - name: Push changes (PR)
+        if: github.event_name == 'pull_request'
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git fetch origin
+          git checkout -b ${{ github.event.pull_request.head.ref }} origin/${{ github.event.pull_request.head.ref }}
+          git pull --rebase origin ${{ github.event.pull_request.head.ref }} || echo "No rebase needed"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+
+      - name: Push changes (non-PR)
+        if: github.event_name != 'pull_request'
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
+          git push || echo "No changes to push"
+
+      - name: Create Pull Request (non-PR)
+        if: github.event_name != 'pull_request'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: fix-notebook-format
+          title: "Fix notebook format for GitHub compatibility"
+          body: |
+            This PR fixes Jupyter notebook formatting issues to ensure proper rendering on GitHub.
+            
+            The workflow addresses:
+            - Converting VS Code XML format to standard Jupyter JSON format
+            - Adding missing widget state metadata
+            - Ensuring notebook format complies with GitHub's requirements
+            
+            These changes allow notebooks to render properly in GitHub's notebook viewer.
+          base: main
