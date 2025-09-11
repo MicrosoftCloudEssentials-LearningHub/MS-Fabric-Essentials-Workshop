@@ -42,30 +42,20 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
 
-      - name: Check for changes
-        id: git-check
-        run: |
-          # More reliable way to check for changes in notebooks
-          git update-index --refresh
-          if git diff-index --quiet HEAD -- "*.ipynb"; then
-            echo "No changes detected in notebooks"
-            echo "has_changes=false" >> $GITHUB_OUTPUT
-          else
-            echo "Changes detected in notebooks"
-            echo "has_changes=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Show modified files
-        if: steps.git-check.outputs.has_changes == 'true'
-        run: git status
-
-      - name: Commit and push changes to current branch
-        if: steps.git-check.outputs.has_changes == 'true'
+      - name: Commit and push changes
         run: |
           CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
           echo "Current branch: $CURRENT_BRANCH"
           
-          # Add, commit, and push changes
+          # Stage all notebook files
           git add "**/*.ipynb"
-          git commit -m "Render notebooks for GitHub compatibility"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${CURRENT_BRANCH}
+          
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes detected in notebooks"
+          else
+            echo "Changes detected in notebooks"
+            git commit -m "Fix notebooks for GitHub compatibility"
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${CURRENT_BRANCH}
+            echo "Successfully pushed changes"
+          fi
