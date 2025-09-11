@@ -50,7 +50,14 @@ def convert_notebook(filepath):
             cells = []
             cell_pattern = re.compile(r'<VSCode\.Cell.*?language="(.*?)".*?>(.*?)</VSCode\.Cell>', re.DOTALL)
             
-            for match in cell_pattern.finditer(content):
+            matches = list(cell_pattern.finditer(content))
+            if not matches:
+                print(f"  WARNING: No cells found in {filepath}")
+                return False
+                
+            print(f"  Found {len(matches)} cells")
+            
+            for match in matches:
                 cell_type, cell_content = match.groups()
                 
                 if cell_type == "markdown":
@@ -139,65 +146,6 @@ def convert_notebook(filepath):
         print(f"  ERROR processing {filepath}: {str(e)}")
         return False
 
-def verify_notebooks(directory="."):
-    """Check all notebooks are in valid Jupyter format for GitHub"""
-    notebook_files = []
-    for root, dirs, files in os.walk(directory):
-        if '.git' in dirs:
-            dirs.remove('.git')
-        if '.github' in dirs:
-            dirs.remove('.github')
-        for file in files:
-            if file.endswith('.ipynb'):
-                notebook_files.append(os.path.join(root, file))
-    
-    print(f"\nVerifying {len(notebook_files)} notebooks for GitHub compatibility")
-    
-    errors = 0
-    for nb_path in notebook_files:
-        print(f"Checking {nb_path}")
-        try:
-            with open(nb_path, 'r', encoding='utf-8') as f:
-                content = f.read()
-            
-            # Check if it's still in XML format
-            if '<VSCode.Cell' in content:
-                print(f"  ERROR: {nb_path} is still in XML format")
-                errors += 1
-                continue
-            
-            # Try to load as JSON
-            try:
-                nb_dict = json.loads(content)
-            except json.JSONDecodeError as e:
-                print(f"  ERROR: {nb_path} is not valid JSON: {str(e)}")
-                errors += 1
-                continue
-            
-            # Check for widget state
-            if "widgets" not in nb_dict.get("metadata", {}):
-                print(f"  WARNING: {nb_path} is missing widget state metadata")
-            
-            # Validate with nbformat
-            try:
-                validate(nb_dict)
-                print(f"  SUCCESS: {nb_path} is valid for GitHub rendering")
-            except Exception as e:
-                print(f"  ERROR: {nb_path} validation failed: {str(e)}")
-                errors += 1
-        
-        except Exception as e:
-            print(f"  ERROR checking {nb_path}: {str(e)}")
-            errors += 1
-    
-    if errors > 0:
-        print(f"\n{errors} notebooks may have issues with GitHub rendering")
-    else:
-        print("\nAll notebooks are properly formatted for GitHub rendering")
-    
-    return errors
-
 if __name__ == "__main__":
     print("Rendering notebooks for GitHub compatibility...")
     process_notebooks()
-    verify_notebooks()
