@@ -2,8 +2,9 @@
 """
 Notebook to GitHub-Compatible Format Converter
 
-This script renders XML-format notebooks to standard Jupyter JSON format
-with the required widget state metadata for GitHub rendering.
+This script fixes Jupyter notebooks for GitHub rendering by:
+1. Converting XML-format notebooks to standard Jupyter JSON format
+2. Cleaning widget metadata that can cause GitHub rendering issues
 """
 
 import os
@@ -42,7 +43,7 @@ def process_notebooks(directory="."):
     return success_count
 
 def convert_notebook(filepath):
-    """Convert a XML notebook to standard Jupyter JSON format"""
+    """Convert a notebook to GitHub-compatible format by cleaning widget metadata"""
     print(f"\nProcessing {filepath}")
     
     try:
@@ -99,6 +100,7 @@ def convert_notebook(filepath):
                     "pygments_lexer": "ipython3",
                     "version": "3.8.10"
                 },
+                # Add empty widget state to prevent GitHub rendering issues
                 "widgets": {
                     "application/vnd.jupyter.widget-state+json": {
                         "state": {},
@@ -117,34 +119,34 @@ def convert_notebook(filepath):
             return True
         
         else:
-            # It's already in JSON format, check if it has widget state
+            # It's already in JSON format, clean widget metadata
             try:
-                nb_dict = json.loads(content)
+                notebook = json.loads(content)
+                print(f"  Cleaning widget metadata...")
                 
-                # Check if we need to add widget state metadata
-                if "widgets" not in nb_dict.get("metadata", {}):
-                    print(f"  Adding widget state metadata to JSON notebook...")
-                    nb = nbformat.reads(content, as_version=4)
-                    if "metadata" not in nb:
-                        nb.metadata = {}
-                    nb.metadata["widgets"] = {
+                # Remove potentially problematic widget state but keep proper structure
+                if 'metadata' in notebook:
+                    # Replace with clean widget state
+                    notebook['metadata']['widgets'] = {
                         "application/vnd.jupyter.widget-state+json": {
                             "state": {},
                             "version_major": 2,
                             "version_minor": 0
                         }
                     }
-                    
-                    # Validate and write the notebook
-                    validate(nb)
-                    with open(filepath, 'w', encoding='utf-8') as f:
-                        nbformat.write(nb, f)
-                    
-                    print(f"  Successfully added widget state to {filepath}")
-                    return True
-                else:
-                    print(f"  Notebook already in correct format for GitHub, no changes needed")
-                    return True
+                
+                # Clean widget metadata from cells as well
+                for cell in notebook.get('cells', []):
+                    if 'metadata' in cell and 'widgets' in cell['metadata']:
+                        del cell['metadata']['widgets']
+                
+                # Write the cleaned notebook
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    json.dump(notebook, f, indent=2)
+                
+                print(f"  Successfully cleaned {filepath} for GitHub compatibility")
+                return True
+                
             except json.JSONDecodeError:
                 print(f"  ERROR: {filepath} is not in valid JSON format or XML format")
                 return False
