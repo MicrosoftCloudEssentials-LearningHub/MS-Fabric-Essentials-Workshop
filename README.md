@@ -96,6 +96,10 @@ This is an introductory workshop on Microsoft Fabric. Please follow as described
     </div>
 
 - [AI + LLMs](./AzurePortal/2_AI_LLMs/): Discover how artificial intelligence and large language models integrate with Fabric.
+  - Example of [how to integrate Azure OpenAI with Fabric](./AzurePortal/2_AI_LLMs#configure-azure-openai-service): Call a deployed model and request information.
+  - [Basic Usage of LangChain Transformer](./AzurePortal/2_AI_LLMs#basic-usage-of-langchain-transformer): Create a prompt template, set up an LLMChain, and configure the transformer to execute the processing chain.
+  - Example of [Using LangChain for Large Scale Literature Review](./AzurePortal/2_AI_LLMs#using-langchain-for-large-scale-literature-review): This example is around extracting content from PDFs linked in arXiv papers and generating prompts for extracting specific information.
+  - [Machine Learning Integration with Microsoft Fabric](./AzurePortal/2_AI_LLMs#machine-learning-integration-with-microsoft-fabric): Shows how to train and register machine learning models using Microsoft Fabric's native integration with the MLflow framework. This includes logging trained models, hyperparameters, and evaluation metrics. It also shows how to compare and filter machine learning models using MLflow, with an example using RandomForestRegressor.
 - [AI Skills](./AzurePortal/3_AISkills.md): Get insights on using AI skills within the platform.
 - `CI/CD`: Learn about continuous integration and continuous deployment, including [deployment pipelines](./AzurePortal/4_CICD/0_deployment-pipelines/) and [GitHub integration](./AzurePortal/4_CICD/1_github-integration.md).
 
